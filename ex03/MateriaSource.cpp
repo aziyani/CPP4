@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:17:40 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/26 18:45:38 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/27 13:32:06 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
+	*this = src;
 }
 
 
@@ -34,7 +35,10 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 MateriaSource::~MateriaSource()
 {
 	for(int i = 0; i < 4; i++)
+	{
+		
 		delete slots[i];
+	}
 }
 
 
@@ -42,27 +46,21 @@ MateriaSource::~MateriaSource()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs ) // ????????
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		for (int i = 0; i < 4; i++)
+			this->slots[i] = rhs.slots[i];
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void MateriaSource::learnMateria(AMateria* m)
+void MateriaSource::learnMateria(AMateria* m) // fill slots array with m pointer m hold type ice or cure
 {
 	int i;
 	for(i = 0; i < 4 && slots[i] != NULL; i++);
@@ -71,16 +69,16 @@ void MateriaSource::learnMateria(AMateria* m)
 		delete m;
 		return ;
 	}
-	slots[i] = m->clone();
+	slots[i] = m;
 
 }
 
-AMateria *MateriaSource::createMateria(std::string const & type)
+AMateria *MateriaSource::createMateria(std::string const & type) // check if slots[i] type is equal type param if it true return a copy of it
 {
 	for (int i = 0; i < 4 && slots[i] != NULL; i++)
 	{
 		if (slots[i]->getType() == type)
-			return (slots[i]);
+			return (slots[i]->clone());
 	}
 	return (NULL);
 }

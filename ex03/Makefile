@@ -6,11 +6,11 @@
 #    By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/25 18:16:48 by aziyani           #+#    #+#              #
-#    Updated: 2023/09/26 19:00:48 by aziyani          ###   ########.fr        #
+#    Updated: 2023/09/27 13:16:15 by aziyani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = polymorphim
+NAME = recap
 
 CC = c++
 

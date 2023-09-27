@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:17:04 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/26 18:05:53 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/27 10:08:42 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ class AMateria
 		virtual void use(ICharacter &target);
 
 };
-
-std::ostream &			operator<<( std::ostream & o, AMateria const & i );
 
 #endif /* ******************************************************** AMATERIA_H */

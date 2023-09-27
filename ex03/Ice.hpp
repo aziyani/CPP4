@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:17:24 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/26 16:47:01 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/27 11:31:01 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ class Ice : public AMateria
 	private:
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Ice const & i );
 
 #endif /* ************************************************************* ICE_H */

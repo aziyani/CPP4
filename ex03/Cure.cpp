@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:17:16 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/26 17:44:54 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/27 12:57:57 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cure::Cure() : AMateria("cure")
 
 Cure::Cure( const Cure & src )
 {
-	
+	*this = src;
 }
 
 
@@ -41,19 +41,12 @@ Cure::~Cure()
 
 Cure&	Cure::operator=( Cure const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		this->type = rhs.type;
+	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i )
-{
-	//o << "Value = " << i.getValue();
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -66,7 +59,7 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter &target)
 {
-	std::cout << "* shoots an Cure bolt at " << this->getType() << " *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s" << " wounds *" << std::endl;
 }
 
 /*

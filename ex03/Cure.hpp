@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:17:19 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/26 17:42:44 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/27 11:30:28 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,5 @@ class Cure : public AMateria
 		AMateria *clone() const;
 		void use(ICharacter &target);
 };
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
 
 #endif /* ************************************************************ CURE_H */

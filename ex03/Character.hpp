@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:17:13 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/26 18:58:16 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/27 10:46:30 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,5 @@ class Character : public ICharacter
 		AMateria *temp[4];
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Character const & i );
 
 #endif /* ******************************************************* CHARACTER_H */

@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:17:29 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/26 16:04:31 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/27 10:06:42 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <string>
 
 # include "AMateria.hpp"
+
+class AMateria; // class forward
 
 class ICharacter
 {
