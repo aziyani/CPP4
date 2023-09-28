@@ -13,7 +13,7 @@
 # functions allow up to override methods in sublasses so for example let's say we've two classes A and B, B is derived from K many would be the subclass of A,
 # if we create a method in the A class and marceters virtual we have the opotion of overriding that method in the B class to get to do something else.
 
-NAME = polymorphim
+NAME = fire
 
 CC = c++
 

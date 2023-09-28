@@ -12,24 +12,26 @@
 
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog") // this->type = "Gog"
+Dog::Dog() : Animal("Dog")
 {   
-    std::cout << "Default dog constructo" << std::endl;   
+    std::cout << "Default Dog constructo called" << std::endl;   
 }
 
-Dog::Dog(const Dog &obj) : Animal() // its nessecry to call the parent class in the copy constructor manually
+Dog::Dog(const Dog &obj) : Animal()
 {
+    std::cout << "copy Dog constructor called" << std::endl;
     *this = obj;
 }
 
 Dog::~Dog()
 {
-
+    std::cout << "Dog destructo called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &obj)
 {
-    (void)obj;
+    std::cout << "Dog assignemet overloaded called" << std::endl;
+    this->type = obj.type;
     return (*this);
 }
 

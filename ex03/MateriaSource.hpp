@@ -22,6 +22,8 @@
 class MateriaSource : public IMateriaSource
 {
 
+	private:
+		AMateria *slots[4];
 	public:
 
 		MateriaSource();
@@ -29,11 +31,9 @@ class MateriaSource : public IMateriaSource
 		~MateriaSource();
 		MateriaSource &		operator=( MateriaSource const & rhs );
 
-		void learnMateria(AMateria*); 
+		void learnMateria(AMateria*);
 		AMateria* createMateria(std::string const & type);
 
-	private:
-		AMateria *slots[4];
 
 };
 

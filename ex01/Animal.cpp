@@ -14,22 +14,24 @@
 
 Animal::Animal()
 {
-    
+    std::cout << "Animal Default construcot called" << std::endl;
 }
 
 Animal::Animal(const Animal &obj)
 {
+    std::cout << "Animal Copy construcot called" << std::endl;
     *this = obj;
 }
 
 Animal::Animal(const std::string iType)
 {
+    std::cout << "Animal Param construcot called" << std::endl;
     type = iType;
 }
 
 Animal::~Animal()
 {
-
+    std::cout << "Animal Destrucot called" << std::endl;
 }
 
 std::string Animal::getType() const
@@ -39,6 +41,7 @@ std::string Animal::getType() const
 
 Animal &Animal::operator=(const Animal &obj)
 {
+    std::cout << "Animal copy assignment called" << std::endl;
     if (this != &obj)
         this->type = obj.type;
     return (*this);

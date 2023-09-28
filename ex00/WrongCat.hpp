@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongCat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 20:40:04 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/24 13:59:48 by aziyani          ###   ########.fr       */
+/*   Created: 2023/09/21 20:11:57 by aziyani           #+#    #+#             */
+/*   Updated: 2023/09/22 20:19:18 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
-int main()
+# include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
 {
-    Brain brain;
-    brain.addIdea("node", 0);
-    brain.addIdea("takol", 1);
-    Cat catt = Cat(brain);
-    catt.tellIdeas();
-    brain.addIdea("new idea", 2);
-    catt.tellIdeas();
-    return 0;
-}
+
+public:
+    WrongCat();
+    WrongCat(const WrongCat &obj);
+    ~WrongCat();
+    
+    WrongCat &operator=(const WrongCat &obj);
+
+    std::string getType() const;
+    void makeSound() const;
+};
+
+#endif

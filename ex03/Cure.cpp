@@ -20,7 +20,7 @@ Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure( const Cure & src )
+Cure::Cure( const Cure & src ) : AMateria(src)
 {
 	*this = src;
 }
@@ -54,7 +54,7 @@ Cure&	Cure::operator=( Cure const & rhs )
 
 AMateria* Cure::clone() const
 {
-	return new Cure();
+	return (new Cure());
 }
 
 void Cure::use(ICharacter &target)

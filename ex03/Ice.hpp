@@ -28,8 +28,8 @@ class Ice : public AMateria
 		~Ice();
 		Ice &		operator=( Ice const & rhs );
 
-		virtual AMateria *clone() const;
-		virtual void use(ICharacter &target);
+		AMateria *clone() const;
+		void use(ICharacter &target);
 
 	private:
 

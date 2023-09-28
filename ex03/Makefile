@@ -14,7 +14,7 @@ NAME = recap
 
 CC = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98 
 
 SRC = AMateria.cpp Character.cpp  Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 

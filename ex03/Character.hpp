@@ -23,6 +23,10 @@ class AMateira;
 
 class Character : public ICharacter
 {
+	private:
+		std::string name;
+		AMateria *slots[4];
+		AMateria *temp[4];
 	public:
 		Character();
 		Character(std::string _name);
@@ -30,15 +34,11 @@ class Character : public ICharacter
 		~Character();
 		Character&		operator=( Character const & rhs );
 
-		virtual std::string const & getName() const;
+		std::string const & getName() const;
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
 
-	private:
-		std::string name;
-		AMateria *slots[4];
-		AMateria *temp[4];
 
 };
 

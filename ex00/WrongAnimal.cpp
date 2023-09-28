@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,45 +10,45 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Animal.hpp"
+# include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-    std::cout << "Default animal constructo called" << std::endl;
+    std::cout << "Default WrongAnimal constructo called" << std::endl;
 }
 
-Animal::Animal(const Animal &obj)
+WrongAnimal::WrongAnimal(const WrongAnimal &obj)
 {
-    std::cout << "copy animal constructo called" << std::endl;
+    std::cout << "copy WrongAnimal constructo called" << std::endl;
     *this = obj;
 }
 
-Animal::Animal(const std::string iType)
+WrongAnimal::WrongAnimal(const std::string iType)
 {
-    std::cout << "param animal constructo called" << std::endl;
+    std::cout << "param WrongAnimal constructo called" << std::endl;
 
     this->type = iType;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-    std::cout << "animal destructo called" << std::endl;
+    std::cout << "WrongAnimal destructo called" << std::endl;
 }
 
-std::string Animal::getType() const
+std::string WrongAnimal::getType() const
 {
     return (this->type);
 }
 
-Animal &Animal::operator=(const Animal &obj)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &obj)
 {
-    std::cout << "Animal assignemet overloaded called" << std::endl;
+    std::cout << "WrongAnimal assignemet overloaded called" << std::endl;
     if (this != &obj)
         this->type = obj.type;
     return (*this);
 }
 
-void    Animal::makeSound() const
+void    WrongAnimal::makeSound() const
 {
-    std::cout << "Generic animal sound" << std::endl;
+    std::cout << "Generic WrongAnimal sound" << std::endl;
 }

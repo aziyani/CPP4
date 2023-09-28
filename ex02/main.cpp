@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:40:04 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/24 22:16:40 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/24 13:59:48 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,12 @@
 
 int main()
 {
-    // Animal *Animals[10];
-    // for (int i = 0; i < 5; i++)
-    // {
-    //     Animals[i] = new Dog();
-    // }
-    // for (int i = 5; i < 10; i++)
-    // {
-    //     Animals[i] = new Cat();
-    // }
-    // for (int i = 0; i < 10; i++)
-    // {
-    //     Animals[i]->makeSound();
-    //     delete Animals[i];
-    // }
-    // const Dog test;
-    Animal *huski = new Dog();
-    // huski->makeSound();
-    delete huski;
-    
+    Brain brain;
+    brain.addIdea("node", 0);
+    brain.addIdea("takol", 1);
+    Cat catt = Cat(brain);
+    catt.tellIdeas();
+    brain.addIdea("new idea", 2);
+    catt.tellIdeas();
     return 0;
 }

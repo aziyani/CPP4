@@ -11,24 +11,25 @@
 /* ************************************************************************** */
 
 # include "Animal.hpp"
+# include "WrongAnimal.hpp"
+# include "WrongCat.hpp"
 # include "Dog.hpp"
 # include "Cat.hpp"
 
-void say_hi(Animal *an)
-{
-    an->makeSound();
-}
-
 int main()
 {
-    // const Animal* meta = new Animal();
-    const Animal* j  = new Dog();
-    // const Animal* i = new Cat();
-    // std::cout << j->getType() << " " << std::endl;
-    // std::cout << i->getType() << " " << std::endl;
-    // i->makeSound();
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound();
     j->makeSound();
-    // meta->makeSound();
-    (void)j;
+    meta->makeSound();
+
+    std::cout << std::endl;
+    const WrongAnimal* wcatty = new WrongCat();
+    wcatty->makeSound();
+
     return 0;
 }

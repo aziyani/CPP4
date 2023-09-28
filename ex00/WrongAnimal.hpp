@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 20:40:04 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/24 13:59:48 by aziyani          ###   ########.fr       */
+/*   Created: 2023/09/21 20:10:53 by aziyani           #+#    #+#             */
+/*   Updated: 2023/09/24 17:16:29 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-int main()
+# include <iostream>
+# include <string>
+
+class WrongAnimal
 {
-    Brain brain;
-    brain.addIdea("node", 0);
-    brain.addIdea("takol", 1);
-    Cat catt = Cat(brain);
-    catt.tellIdeas();
-    brain.addIdea("new idea", 2);
-    catt.tellIdeas();
-    return 0;
-}
+protected:
+    std::string type;
+
+public:
+    WrongAnimal();
+    WrongAnimal(const WrongAnimal &obj);
+    WrongAnimal(const std::string iType);
+    ~WrongAnimal();
+    WrongAnimal &operator=(const WrongAnimal &obj);
+    std::string getType() const;
+    void makeSound() const;
+};
+
+#endif

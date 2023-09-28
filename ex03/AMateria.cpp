@@ -18,6 +18,7 @@
 
 AMateria::AMateria()
 {
+	std::cout << "Default Constructor called" << std::endl;
 }
 
 AMateria::AMateria( const AMateria & src )

@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:11:31 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/24 16:53:40 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/23 11:19:54 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 Dog::Dog() : Animal("Dog") // this->type = "Gog", we this "Animal("Dog")" to initialize the type variable;
 {
-    std::cout << "constructor dog" << std::endl;
+    std::cout << "Brain Default construcot called" << std::endl;
     mind = new Brain();
 }
 
 Dog::Dog(const Dog &obj) : Animal(obj.getType()) // its nessecry to call the parent class in the copy constructor manually
 {
+    std::cout << "Dog Copy construcot called" << std::endl;
     mind = new Brain();
     *this = obj;
 }
 
 Dog::~Dog()
 {
-    std::cout << "destructor 999999 dog" << std::endl;
-
+    std::cout << "Dog Destrucot called" << std::endl;
     delete mind;
 }
 
 Dog &Dog::operator=(const Dog &obj)
 {
+    std::cout << "Dog Copy assignment called" << std::endl;
     if (this != &obj)
     {
         *this->mind = *obj.mind;
-        // std::cout << this->mind << "\c;
     }
     return (*this);
 }

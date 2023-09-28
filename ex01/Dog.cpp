@@ -12,29 +12,31 @@
 
 # include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog") // this->type = "Gog", we this "Animal("Dog")" to initialize the type variable;
+Dog::Dog() : Animal("Dog")
 {
+    std::cout << "Brain Default construcot called" << std::endl;
     mind = new Brain();
 }
 
-Dog::Dog(const Dog &obj) : Animal(obj.getType()) // its nessecry to call the parent class in the copy constructor manually
+Dog::Dog(const Dog &obj) : Animal(obj.getType())
 {
+    std::cout << "Dog Copy construcot called" << std::endl;
     mind = new Brain();
     *this = obj;
 }
 
 Dog::~Dog()
 {
+    std::cout << "Dog Destrucot called" << std::endl;
     delete mind;
 }
 
 Dog &Dog::operator=(const Dog &obj)
 {
+    std::cout << "Dog Copy assignment called" << std::endl;
     if (this != &obj)
     {
         *this->mind = *obj.mind;
-        std::cout << this->mind << "\n";
-        std::cout << obj.mind << "\n";
     }
     return (*this);
 }

@@ -66,11 +66,16 @@ Character &Character::operator=(Character const &rhs)
 		this->name = rhs.name;
 		for (int i = 0; i < 4; i++)
 		{
+			delete this->slots[i];
 			if (rhs.slots[i] != NULL)
-			{
-				delete this->slots[i];
 				this->slots[i] = rhs.slots[i]->clone();
-			}
+			else
+				this->slots[i] = NULL;
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			delete temp[i];
+			temp[i] = NULL;
 		}
 	}
 	return *this;

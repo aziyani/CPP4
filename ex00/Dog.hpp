@@ -25,6 +25,17 @@ public:
     Dog &operator=(const Dog &obj);
     std::string getType() const;
     void makeSound() const;
+
 };
 
 #endif
+
+
+// polymorphism in inheritance hwa fach kanchdo refrence wla pointer dyal base class wkan3tiwh lvalue wla l address dyal derived class 
+// example :
+// Animal *ptr_7ayawan = new Dog();
+
+// Dog zoubir;
+// Animal &ref_7ayawan = zoubir;  
+
+// Dog odsnd

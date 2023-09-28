@@ -27,7 +27,8 @@ public:
     Brain(const Brain &obj);
     ~Brain();
     Brain &operator=(const Brain &obj);
-
+    void addIdea(std::string idea, int index);
+    void tellIdea();
 };
 
 #endif

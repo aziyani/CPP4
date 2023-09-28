@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,37 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Cat.hpp"
+# include "WrongCat.hpp"
 
-Cat::Cat() : Animal("Cat")
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-    std::cout << "Default Cat constructo called" << std::endl;
+    std::cout << "Default WrongCat constructo called" << std::endl;
 }
 
-Cat::Cat(const Cat &obj): Animal()
+WrongCat::WrongCat(const WrongCat &obj): WrongAnimal() // its nessecry to call the parent class in the copy constructor manually
 {
-    std::cout << "copy Cat constructo called" << std::endl;
+    std::cout << "copy WrongCat constructo called" << std::endl;
     *this = obj;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-    std::cout << "Cat destructo called" << std::endl;
+    std::cout << "WrongCat destructo called" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &obj)
+WrongCat &WrongCat::operator=(const WrongCat &obj)
 {
-    std::cout << "Cat assignemet overloaded call" << std::endl;
+    std::cout << "WrongCat assignemet overloaded call" << std::endl;
     this->type = obj.type;
     return (*this);
 }
 
-std::string Cat::getType() const
+std::string WrongCat::getType() const
 {
     return (this->type);
 }
 
-void Cat::makeSound() const
+void WrongCat::makeSound() const
 {
     std::cout << "Meoooow" << std::endl;
 }

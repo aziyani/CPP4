@@ -6,7 +6,7 @@
 /*   By: aziyani <aziyani@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 20:11:01 by aziyani           #+#    #+#             */
-/*   Updated: 2023/09/24 16:58:34 by aziyani          ###   ########.fr       */
+/*   Updated: 2023/09/24 11:41:41 by aziyani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 Animal::Animal()
 {
-    
+    std::cout << "Animal Default construcot called" << std::endl;
 }
 
 Animal::Animal(const Animal &obj)
 {
+    std::cout << "Animal Copy construcot called" << std::endl;
     *this = obj;
 }
 
 Animal::Animal(const std::string iType)
 {
-    std::cout << "constructor animal" << std::endl;
+    std::cout << "Animal Param construcot called" << std::endl;
     type = iType;
 }
 
 Animal::~Animal()
 {
-    std::cout << "destructor animal" << std::endl;
-
+    std::cout << "Animal Destrucot called" << std::endl;
 }
 
 std::string Animal::getType() const
@@ -41,6 +41,7 @@ std::string Animal::getType() const
 
 Animal &Animal::operator=(const Animal &obj)
 {
+    std::cout << "Animal copy assignment called" << std::endl;
     if (this != &obj)
         this->type = obj.type;
     return (*this);

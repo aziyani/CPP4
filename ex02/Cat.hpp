@@ -23,10 +23,13 @@ private:
 public:
     Cat();
     Cat(const Cat &obj);
+    Cat(const Brain &src);
     ~Cat();
     Cat &operator=(const Cat &obj);
     std::string getType() const;
     void makeSound() const;
+    void setBrain(const Brain &src);
+    void tellIdeas();
 };
 
 #endif

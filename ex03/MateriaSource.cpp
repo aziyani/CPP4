@@ -24,6 +24,11 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
+	for(int i = 0; i < 4; i++)
+	{
+		slots[i] = NULL;
+		slots[i]->clone();
+	}
 	*this = src;
 }
 
@@ -36,7 +41,6 @@ MateriaSource::~MateriaSource()
 {
 	for(int i = 0; i < 4; i++)
 	{
-		
 		delete slots[i];
 	}
 }
@@ -46,12 +50,15 @@ MateriaSource::~MateriaSource()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs ) // ????????
+MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
 	if ( this != &rhs )
 	{
 		for (int i = 0; i < 4; i++)
-			this->slots[i] = rhs.slots[i];
+		{
+			delete slots[i];
+			this->slots[i] = rhs.slots[i]->clone();
+		}
 	}
 	return *this;
 }
@@ -62,15 +69,15 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs ) // ????
 
 void MateriaSource::learnMateria(AMateria* m) // fill slots array with m pointer m hold type ice or cure
 {
-	int i;
-	for(i = 0; i < 4 && slots[i] != NULL; i++);
-	if (i == 3 && slots[i] != NULL)
+	for (int i = 0; i < 4; i++)
 	{
-		delete m;
-		return ;
+		if (slots[i] == NULL)
+		{
+			slots[i] = m;
+			return ;
+		}
 	}
-	slots[i] = m;
-
+	delete m;
 }
 
 AMateria *MateriaSource::createMateria(std::string const & type) // check if slots[i] type is equal type param if it true return a copy of it

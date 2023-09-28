@@ -20,10 +20,6 @@ class Animal
 {
 protected:
     std::string type;
-    std::string type1;
-    std::string type2;
-    std::string type3;
-    std::string type4;
 
 public:
     Animal();
