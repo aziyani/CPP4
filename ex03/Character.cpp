@@ -35,9 +35,8 @@ Character::Character(const Character &src)
 	*this = src;
 }
 
-Character::Character(std::string _name)
+Character::Character(const std::string& _name) : name(_name)
 {
-	name = _name;
 	for (int i = 0; i < 4; i++)
 	{
 		slots[i] = NULL;
@@ -51,6 +50,7 @@ Character::Character(std::string _name)
 
 Character::~Character()
 {
+	empty_temp();
 	for (int i = 0; i < 4; i++)
 		delete slots[i];
 }
@@ -64,14 +64,15 @@ Character &Character::operator=(Character const &rhs)
 	if (this != &rhs)
 	{
 		this->name = rhs.name;
+
 		for (int i = 0; i < 4; i++)
 		{
 			delete this->slots[i];
+			this->slots[i] = NULL;
 			if (rhs.slots[i] != NULL)
 				this->slots[i] = rhs.slots[i]->clone();
-			else
-				this->slots[i] = NULL;
 		}
+
 		for (int i = 0; i < 4; i++)
 		{
 			delete temp[i];
@@ -92,27 +93,24 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	int i;
-	for (i = 0; i < 4; i++)
-	{
-		if (slots[i] == NULL)
-		{
-			slots[i] = m;
-			break ;
-		}
-	}
-	if (i > 3)
-		delete m;
+	empty_temp();
+
 	for (int i = 0; i < 4; i++)
 	{
-		delete temp[i];
-		temp[i] = NULL;
+		if (slots[i] == NULL) // if there is a slot put it in it.
+		{
+			slots[i] = m;
+			return ;
+		}
 	}
+
+	// delete if there is no slot to put the materia in.
+	delete m;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx < 4)
+	if (idx >= 0 && idx < 4)
 	{
 		if (slots[idx] != NULL)
 			temp[idx] = slots[idx];
@@ -124,11 +122,8 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	for (int i = 0; i < 4; i++)
-	{
-		delete temp[i];
-		temp[i] = NULL;
-	}
+	empty_temp();
+
 	if (idx < 4)
 	{
 		if (slots[idx] != NULL)
@@ -136,6 +131,15 @@ void Character::use(int idx, ICharacter &target)
 	}
 	else
 		std::cout << "this index not exist" << std::endl;
+}
+
+void Character::empty_temp( void )
+{
+	for (int i = 0; i < 4; i++)
+	{
+		delete temp[i];
+		temp[i] = NULL;
+	}
 }
 
 /*

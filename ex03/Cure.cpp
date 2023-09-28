@@ -22,7 +22,6 @@ Cure::Cure() : AMateria("cure")
 
 Cure::Cure( const Cure & src ) : AMateria(src)
 {
-	*this = src;
 }
 
 
@@ -42,9 +41,7 @@ Cure::~Cure()
 Cure&	Cure::operator=( Cure const & rhs )
 {
 	if ( this != &rhs )
-	{
 		this->type = rhs.type;
-	}
 	return *this;
 }
 

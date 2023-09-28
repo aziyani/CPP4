@@ -22,7 +22,6 @@ Ice::Ice() : AMateria("ice")
 
 Ice::Ice( const Ice & src ) : AMateria(src)
 {
-	*this = src;
 }
 
 

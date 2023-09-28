@@ -20,10 +20,11 @@ SRC = AMateria.cpp Character.cpp  Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 
+RM = rm -rf
+
 %.o:%.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
-RM = rm -rf
 
 all: $(NAME)
 

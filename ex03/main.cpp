@@ -50,6 +50,14 @@ void    init()
 
 int main()
 {
-    init();
+    // init();
+
+    IMateriaSource* ms = new MateriaSource();
+    std::cout << "here" << std::endl;
+    ms->learnMateria(new Ice());
+    ms->learnMateria(new Ice());
+
+
+
     return 0;
 }

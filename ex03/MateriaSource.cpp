@@ -24,12 +24,13 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource( const MateriaSource & src )
 {
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < 4; i++) // copy from src without calling the operator=
 	{
 		slots[i] = NULL;
-		slots[i]->clone();
+		if (src.slots[i])
+			this->slots[i] = src.slots[i]->clone();
 	}
-	*this = src;
+	// *this = src;
 }
 
 
@@ -57,7 +58,9 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 		for (int i = 0; i < 4; i++)
 		{
 			delete slots[i];
-			this->slots[i] = rhs.slots[i]->clone();
+			slots[i] = NULL;
+			if (rhs.slots[i])
+				this->slots[i] = rhs.slots[i]->clone();
 		}
 	}
 	return *this;
@@ -69,14 +72,24 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 
 void MateriaSource::learnMateria(AMateria* m) // fill slots array with m pointer m hold type ice or cure
 {
+	if (m == NULL)
+		return ;
 	for (int i = 0; i < 4; i++)
 	{
-		if (slots[i] == NULL)
+		if (slots[i] && m->getType() == slots[i]->getType()) // delete if it already exists
 		{
+			// std::cout << "already in register" << std::endl;
+			delete m;
+			return ;
+		}
+		else if (slots[i] == NULL) // learn if it doesn't exist
+		{
+			// std::cout << "learned" << std::endl;
 			slots[i] = m;
 			return ;
 		}
 	}
+	std::cout << "Warning: Can't learn materia: register full - materia deleted" << std::endl;
 	delete m;
 }
 

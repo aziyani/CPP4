@@ -54,16 +54,6 @@ AMateria &				AMateria::operator=( AMateria const & rhs )
 }
 
 /*
-** --------------------------------- METHODS ----------------------------------
-*/
-
-void	AMateria::use(ICharacter &target)
-{
-	(void)target;
-	std::cout << "base class" << std::endl;
-}
-
-/*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 

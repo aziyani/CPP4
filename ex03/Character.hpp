@@ -27,9 +27,12 @@ class Character : public ICharacter
 		std::string name;
 		AMateria *slots[4];
 		AMateria *temp[4];
+
+		void	empty_temp( void );
+
 	public:
 		Character();
-		Character(std::string _name);
+		Character(const std::string& _name);
 		Character( Character const & src );
 		~Character();
 		Character&		operator=( Character const & rhs );
